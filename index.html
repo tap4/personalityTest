@@ -1,0 +1,85 @@
+<html>
+<head>
+	<meta htpp-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Personality Test</title>
+	<link href="img/head.ico" rel="icon" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="./css/mobile.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+<script id="vertex-shader" type="x-shader/x-vertex">
+
+attribute  vec4 vPosition;
+attribute  vec4 vColor;
+varying vec4 fColor;
+
+uniform mat4 projection;
+uniform mat4 modelview;
+
+void main() 
+{
+    fColor = vColor;
+    gl_Position = projection * modelview * vPosition;
+} 
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+
+precision mediump float;
+   
+varying vec4 fColor;
+
+void
+main()
+{
+    gl_FragColor = fColor;
+}
+</script>
+
+<script type="text/javascript" src="./js/webgl-utils.js"></script>
+<script type="text/javascript" src="./js/initShaders.js"></script>
+<script type="text/javascript" src="./js/MV.js"></script>
+<script type="text/javascript" src="./js/mobile.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+	<div class="col-lg-12" id = "formContainer">
+		<div class="col-lg-6 col-lg-offset-3">
+			<h1 id="title"> The Myers-Briggs Mobile Project</h1>
+		</div>
+		<div id="changingTextContainer" class="col-lg-12">
+			<div id="introInHere" class="col-lg-8 col-lg-offset-2">
+			<p id="introText">
+		 	Here at The Meyers-Briggs Mobile Project we believe each and every person is a unique and special creature.  A generic mobile could never satisfy the needs of all!!  <br /><br /> So, using the latest advancements in personality testing, we've developed a system to analyze each of our customers and create a customized mobile that is guaranteed to match his/her every quirk, whim, and fancy!<br /><br /> The results are breathtaking.  And it only takes a moment of your time! <br /><br /> Just complete the short survey below and we'll get to work on your personalized mobile right away...<br /><br /> <i>[Be sure to enable your sound. Our mobiles are multisensory.] </i></p>
+		 	<input class="btn btn-raised btn-primary" type ="submit" id="takeSurvey" value="Take Survey" name="Take Survey"/>
+		 </div>
+		 	<div id="formInHere" class="col-lg-8 col-lg-offset-2">
+		 		<form id="surveyForm">
+		 			<p id="questionText">Which of the following best describes your ideal romantic partner?</p>
+		 			<input id="answer0" type="radio" name="surveyRadio" value="disney">
+		 				<span id="answer0Text">
+		 					The boy/girl next door with wholesome family values
+		 				</span>
+		 			</input></br>
+		 			<input id="answer1" type="radio" name="surveyRadio" value="summer">
+		 				<span id="answer1Text">
+		 					The wild, uninhibited party animal who is looking for a good time, ALL of the time
+		 				</span>
+		 			</input></br>
+		 			<input id="answer2" type="radio" name="surveyRadio" value="guns">
+		 				<span id="answer2Text">The 'bad' boy/girl that you can't take home to mother</span>
+		 			</input></br>
+		 			<input class="btn btn-raised btn-success" type="submit" id="answerButton" value="Answer"/>
+		 	</div>
+		</div>
+		<div id="resetContainer" class="col-lg-12">
+			<input class="btn btn-raised btn-warning" type="button" onClick="location.href='index.html';" id="resetButton" value="Try Again"/>
+		</div>
+		<div id="canvasContainer" class="col-lg-12">
+<canvas id="gl-canvas" width="510" height="510">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+   </div>
+<br/>
+
+</body>
+</html>
