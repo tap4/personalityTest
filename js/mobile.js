@@ -185,7 +185,7 @@ var questions =
       "I am living in a bright, beautiful kaleidoscope of color. A rainbow of wonders.",
       "The wicked clowns hunt me down and try to steal my soul. I wake up gasping for air."],
      ["If you were hosting a party, the invitations would ask Guests to \"Bring Your Own __________\".",
-      "Balloons", "Fireworks", "Crystal Meth"]];
+      "Balloons", "A bottle of wine", "Fireworks"]];
 
 var answersTranslated =
     [["disney", "summer", "guns"],
